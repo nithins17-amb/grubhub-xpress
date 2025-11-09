@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Menu, User } from "lucide-react";
+import { ShoppingCart, Menu, User, LogOut } from "lucide-react";
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   return (
     <nav className="sticky top-0 z-50 bg-background border-b border-border shadow-sm">
@@ -39,12 +41,22 @@ const Navbar = () => {
             <Button variant="ghost" size="icon">
               <ShoppingCart className="h-5 w-5" />
             </Button>
-            <Link to="/user-login">
-              <Button variant="outline">
-                <User className="h-4 w-4 mr-2" />
-                Login
+            {user ? (
+              <Button 
+                onClick={() => signOut()}
+                variant="outline"
+              >
+                <LogOut className="h-4 w-4 mr-2" />
+                Logout
               </Button>
-            </Link>
+            ) : (
+              <Link to="/user-login">
+                <Button variant="outline">
+                  <User className="h-4 w-4 mr-2" />
+                  Login
+                </Button>
+              </Link>
+            )}
             <Link to="/menu">
               <Button className="bg-primary hover:bg-primary-hover text-primary-foreground">
                 Order Now
@@ -77,12 +89,26 @@ const Navbar = () => {
               <Link to="/combos" className="text-foreground hover:text-primary transition-colors">
                 Combos
               </Link>
-              <Link to="/user-login">
-                <Button variant="outline" className="w-full">
-                  <User className="h-4 w-4 mr-2" />
-                  Login
+              {user ? (
+                <Button 
+                  onClick={() => {
+                    signOut();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  variant="outline" 
+                  className="w-full"
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
                 </Button>
-              </Link>
+              ) : (
+                <Link to="/user-login">
+                  <Button variant="outline" className="w-full">
+                    <User className="h-4 w-4 mr-2" />
+                    Login
+                  </Button>
+                </Link>
+              )}
               <Link to="/menu">
                 <Button className="w-full bg-primary hover:bg-primary-hover text-primary-foreground">
                   Order Now
