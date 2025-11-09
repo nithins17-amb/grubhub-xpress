@@ -14,17 +14,25 @@ const ShopLogin = () => {
           Back to Home
         </Link>
         
-        <Card className="shadow-card">
-          <CardHeader className="space-y-1">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                <Store className="h-8 w-8 text-primary-foreground" />
-              </div>
+        <div className="bg-gradient-to-br from-veg/10 via-veg/5 to-background rounded-t-lg p-8 border-b-2 border-veg/20">
+          <div className="flex items-center justify-center mb-4">
+            <div className="w-20 h-20 bg-veg rounded-full flex items-center justify-center shadow-lg">
+              <Store className="h-10 w-10 text-white" />
             </div>
-            <CardTitle className="text-2xl text-center">Shop Staff Login</CardTitle>
-            <CardDescription className="text-center">
-              Canteen staff access portal
-            </CardDescription>
+          </div>
+          <h1 className="text-3xl font-bold text-center text-veg">Shop Staff Login</h1>
+          <p className="text-center text-muted-foreground mt-2">
+            Canteen staff access portal
+          </p>
+        </div>
+        
+        <Card className="shadow-card rounded-t-none border-t-0">
+          <CardHeader className="space-y-1 pt-2">
+            <div className="bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-md p-3 text-sm">
+              <p className="font-semibold text-green-800 dark:text-green-200">Default Credentials:</p>
+              <p className="text-green-700 dark:text-green-300">Shop ID: SHOP001</p>
+              <p className="text-green-700 dark:text-green-300">Password: shop123</p>
+            </div>
           </CardHeader>
           <CardContent>
             <form className="space-y-4">
@@ -41,8 +49,8 @@ const ShopLogin = () => {
                 <Label htmlFor="shop-password">Password</Label>
                 <Input 
                   id="shop-password" 
-                  type="password"
-                  placeholder="••••••••"
+                  type="text"
+                  defaultValue="shop123"
                   className="border-input"
                 />
               </div>

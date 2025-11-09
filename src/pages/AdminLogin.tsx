@@ -14,17 +14,25 @@ const AdminLogin = () => {
           Back to Home
         </Link>
         
-        <Card className="shadow-card">
-          <CardHeader className="space-y-1">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                <Shield className="h-8 w-8 text-primary-foreground" />
-              </div>
+        <div className="bg-gradient-to-br from-destructive/10 via-destructive/5 to-background rounded-t-lg p-8 border-b-2 border-destructive/20">
+          <div className="flex items-center justify-center mb-4">
+            <div className="w-20 h-20 bg-destructive rounded-full flex items-center justify-center shadow-lg">
+              <Shield className="h-10 w-10 text-destructive-foreground" />
             </div>
-            <CardTitle className="text-2xl text-center">Admin Portal</CardTitle>
-            <CardDescription className="text-center">
-              Administrative access only
-            </CardDescription>
+          </div>
+          <h1 className="text-3xl font-bold text-center text-destructive">Admin Portal</h1>
+          <p className="text-center text-muted-foreground mt-2">
+            Administrative access only
+          </p>
+        </div>
+        
+        <Card className="shadow-card rounded-t-none border-t-0">
+          <CardHeader className="space-y-1 pt-2">
+            <div className="bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-200 dark:border-yellow-800 rounded-md p-3 text-sm">
+              <p className="font-semibold text-yellow-800 dark:text-yellow-200">Default Credentials:</p>
+              <p className="text-yellow-700 dark:text-yellow-300">Email: admin@canteen.com</p>
+              <p className="text-yellow-700 dark:text-yellow-300">Password: admin123</p>
+            </div>
           </CardHeader>
           <CardContent>
             <form className="space-y-4">
@@ -41,8 +49,8 @@ const AdminLogin = () => {
                 <Label htmlFor="admin-password">Password</Label>
                 <Input 
                   id="admin-password" 
-                  type="password"
-                  placeholder="••••••••"
+                  type="text"
+                  defaultValue="admin123"
                   className="border-input"
                 />
               </div>
