@@ -7,7 +7,7 @@ import { Store, ArrowLeft } from "lucide-react";
 
 const ShopLogin = () => {
   return (
-    <div className="min-h-screen bg-muted flex items-center justify-center px-4">
+    <div className="min-h-screen bg-muted flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
           <ArrowLeft className="h-4 w-4 mr-2" />

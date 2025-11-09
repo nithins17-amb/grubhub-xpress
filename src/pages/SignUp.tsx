@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { User, ArrowLeft } from "lucide-react";
+import { UserPlus, ArrowLeft } from "lucide-react";
 
-const UserLogin = () => {
+const SignUp = () => {
   return (
     <div className="min-h-screen bg-muted flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
@@ -18,22 +18,40 @@ const UserLogin = () => {
           <CardHeader className="space-y-1">
             <div className="flex items-center justify-center mb-4">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                <User className="h-8 w-8 text-primary-foreground" />
+                <UserPlus className="h-8 w-8 text-primary-foreground" />
               </div>
             </div>
-            <CardTitle className="text-2xl text-center">User Login</CardTitle>
+            <CardTitle className="text-2xl text-center">Create Account</CardTitle>
             <CardDescription className="text-center">
-              Enter your credentials to access your account
+              Sign up to start ordering delicious food
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="name">Full Name</Label>
+                <Input 
+                  id="name" 
+                  type="text" 
+                  placeholder="John Doe"
+                  className="border-input"
+                />
+              </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input 
                   id="email" 
                   type="email" 
                   placeholder="you@example.com"
+                  className="border-input"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone">Phone Number</Label>
+                <Input 
+                  id="phone" 
+                  type="tel" 
+                  placeholder="+91 98765 43210"
                   className="border-input"
                 />
               </div>
@@ -46,19 +64,23 @@ const UserLogin = () => {
                   className="border-input"
                 />
               </div>
-              <div className="flex items-center justify-between">
-                <Link to="/forgot-password" className="text-sm text-primary hover:underline">
-                  Forgot password?
-                </Link>
+              <div className="space-y-2">
+                <Label htmlFor="confirm-password">Confirm Password</Label>
+                <Input 
+                  id="confirm-password" 
+                  type="password"
+                  placeholder="••••••••"
+                  className="border-input"
+                />
               </div>
               <Button className="w-full bg-primary hover:bg-primary-hover text-primary-foreground">
-                Sign In
+                Create Account
               </Button>
             </form>
             <div className="mt-6 text-center text-sm">
-              <span className="text-muted-foreground">Don't have an account? </span>
-              <Link to="/signup" className="text-primary hover:underline font-semibold">
-                Sign up
+              <span className="text-muted-foreground">Already have an account? </span>
+              <Link to="/user-login" className="text-primary hover:underline font-semibold">
+                Sign in
               </Link>
             </div>
           </CardContent>
@@ -68,4 +90,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default SignUp;
